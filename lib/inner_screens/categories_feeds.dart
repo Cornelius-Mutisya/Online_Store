@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesFeeds extends StatelessWidget {
-  const CategoriesFeeds({ Key? key }) : super(key: key);
+  const CategoriesFeeds({Key? key}) : super(key: key);
 
   static const routeName = '/CategoriesFeeds';
 
@@ -13,21 +13,24 @@ class CategoriesFeeds extends StatelessWidget {
     final productsProvider = Provider.of<Products>(context, listen: false);
     final categoryName = ModalRoute.of(context)!.settings.arguments as String?;
     print(categoryName);
-    final productsList= productsProvider.findByCategory(categoryName!);
+    final productsList = productsProvider.findByCategory(categoryName!);
     return Scaffold(
-        body: GridView.count(
-      crossAxisCount: 2,
-      childAspectRatio: 240 / 440,
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      children: List.generate(
-        productsList.length, (index) {
-        return ChangeNotifierProvider.value(
-          value: productsList[index],
-          child: FeedsProducts(),
-        );
-      }),
-    ),
+      body: productsList.length == 0
+          ? Center(
+              child: Text('No Products in this Category'),
+            )
+          : GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 0.9,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              children: List.generate(productsList.length, (index) {
+                return ChangeNotifierProvider.value(
+                  value: productsList[index],
+                  child: FeedsProducts(),
+                );
+              }),
+            ),
 //         StaggeredGridView.countBuilder(
 //           padding: ,
 //   crossAxisCount: 6,
@@ -38,6 +41,6 @@ class CategoriesFeeds extends StatelessWidget {
 //   mainAxisSpacing: 8.0,
 //   crossAxisSpacing: 6.0,
 // ),
-        );
+    );
   }
 }

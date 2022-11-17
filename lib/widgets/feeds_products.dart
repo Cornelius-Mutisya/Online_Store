@@ -37,7 +37,7 @@ class _FeedsProductsState extends State<FeedsProducts> {
                       width: double.infinity,
                       constraints: BoxConstraints(
                         minHeight: 120,
-                        maxHeight: MediaQuery.of(context).size.height * 0.25,
+                        maxHeight: MediaQuery.of(context).size.height * 0.15,
                       ),
                       child: Image.network(
                         productsAttributes.imageUrl,

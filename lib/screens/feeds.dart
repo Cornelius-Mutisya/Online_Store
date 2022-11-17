@@ -26,59 +26,56 @@ class Feeds extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        title: Text(
-          'Feeds'
-        ),
+        title: Text('Feeds'),
         actions: [
           Consumer<FavsProvider>(
-                    builder: (_, favs, ch) => 
-                    Badge(
-                      badgeColor: ColorsConsts.favBadgeColor,
-                      animationType: BadgeAnimationType.slide,
-                      toAnimate: true,
-                      position: BadgePosition.topEnd(top: 5, end: 7),
-                      badgeContent: Text(
-                        favs.getFavsItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          MyAppIcons.wishlist,
-                          color: ColorsConsts.favColor,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(Wishlist.routeName);
-                        },
-                      ),
-                  ),
+            builder: (_, favs, ch) => Badge(
+              badgeColor: ColorsConsts.favBadgeColor,
+              animationType: BadgeAnimationType.slide,
+              toAnimate: true,
+              position: BadgePosition.topEnd(top: 5, end: 7),
+              badgeContent: Text(
+                favs.getFavsItems.length.toString(),
+                style: TextStyle(color: Colors.white),
+              ),
+              child: IconButton(
+                icon: Icon(
+                  MyAppIcons.wishlist,
+                  color: ColorsConsts.favColor,
                 ),
-                Consumer<CartProvider>(
-                    builder: (_, cart, ch) => 
-                    Badge(
-                      badgeColor: ColorsConsts.cartBadgeColor,
-                      animationType: BadgeAnimationType.slide,
-                      toAnimate: true,
-                      position: BadgePosition.topEnd(top: 5, end: 7),
-                      badgeContent: Text(
-                        cart.getCartItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    child: IconButton(
-                      icon: Icon(
-                        MyAppIcons.cart,
-                        color: ColorsConsts.cartColor,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(Cart.routeName);
-                      },
-                    ),
-                  ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Wishlist.routeName);
+                },
+              ),
+            ),
+          ),
+          Consumer<CartProvider>(
+            builder: (_, cart, ch) => Badge(
+              badgeColor: ColorsConsts.cartBadgeColor,
+              animationType: BadgeAnimationType.slide,
+              toAnimate: true,
+              position: BadgePosition.topEnd(top: 5, end: 7),
+              badgeContent: Text(
+                cart.getCartItems.length.toString(),
+                style: TextStyle(color: Colors.white),
+              ),
+              child: IconButton(
+                icon: Icon(
+                  MyAppIcons.cart,
+                  color: ColorsConsts.cartColor,
                 ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Cart.routeName);
+                },
+              ),
+            ),
+          ),
         ],
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        childAspectRatio: 240 / 440,
+        // childAspectRatio: 240 / 440,
+        childAspectRatio: 0.9,
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
         children: List.generate(productsList.length, (index) {
