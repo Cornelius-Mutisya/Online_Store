@@ -80,9 +80,9 @@ class _HomeState extends State<Home> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Container(
-              height: 190.0,
               width: double.infinity,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   CarouselSlider(
                     options: CarouselOptions(
@@ -201,7 +201,8 @@ class _HomeState extends State<Home> {
                   return ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: Container(
-                      color: Colors.blueGrey,
+                      color: Colors.white,
+                      padding: EdgeInsets.all(10.0),
                       child: Image.asset(
                         _brandImages[i],
                         fit: BoxFit.fill,
@@ -225,7 +226,8 @@ class _HomeState extends State<Home> {
                   Spacer(),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(Feeds.routeName, arguments: 'popular');
+                      Navigator.of(context)
+                          .pushNamed(Feeds.routeName, arguments: 'popular');
                     },
                     child: Text(
                       'View all...',

@@ -6,7 +6,6 @@ import 'package:ecommerce/screens/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
 class UserInfo extends StatefulWidget {
@@ -131,22 +130,21 @@ class _UserInfoState extends State<UserInfo> {
                       child: InkWell(
                         splashColor: Theme.of(context).splashColor,
                         child: ListTile(
-                          onTap: () => Navigator.of(context).pushNamed(
-                            Wishlist.routeName
-                          ),
+                          onTap: () => Navigator.of(context)
+                              .pushNamed(Wishlist.routeName),
                           title: Text('Wishlist'),
                           trailing: Icon(Icons.chevron_right_rounded),
                           leading: Icon(MyAppIcons.wishlist),
                         ),
                       ),
                     ),
-                     Material(
+                    Material(
                       color: Colors.transparent,
                       child: InkWell(
                         splashColor: Theme.of(context).splashColor,
                         child: ListTile(
-                          onTap: () => Navigator.of(context).pushNamed(
-                            Cart.routeName),
+                          onTap: () =>
+                              Navigator.of(context).pushNamed(Cart.routeName),
                           title: Text('Cart'),
                           trailing: Icon(Icons.chevron_right_rounded),
                           leading: Icon(MyAppIcons.cart),
@@ -211,12 +209,16 @@ class _UserInfoState extends State<UserInfo> {
                         splashColor: Theme.of(context).splashColor,
                         child: ListTile(
                           onTap: () {
-                            Navigator.canPop(context)? Navigator.pop(context):null;
+                            Navigator.canPop(context);
+                            Navigator.pop(context);
                           },
                           title: Text('Logout'),
                           leading: Icon(Icons.exit_to_app_rounded),
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 200,
                     ),
                   ],
                 ),
