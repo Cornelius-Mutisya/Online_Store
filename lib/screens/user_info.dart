@@ -161,7 +161,7 @@ class _UserInfoState extends State<UserInfo> {
                     userListTile(
                       context,
                       'Email',
-                      'Email subtitle',
+                      'corneliusmutisya11@gmail.com',
                       0,
                     ),
                     userListTile(
@@ -173,13 +173,13 @@ class _UserInfoState extends State<UserInfo> {
                     userListTile(
                       context,
                       'Shipping address',
-                      '',
+                      'Kasarani, Nairobi',
                       2,
                     ),
                     userListTile(
                       context,
-                      'joined date',
-                      'date',
+                      'Date joined',
+                      '12/12/2021',
                       3,
                     ),
                     Padding(
@@ -212,8 +212,16 @@ class _UserInfoState extends State<UserInfo> {
                             Navigator.canPop(context);
                             Navigator.pop(context);
                           },
-                          title: Text('Logout'),
-                          leading: Icon(Icons.exit_to_app_rounded),
+                          title: Text(
+                            'Logout',
+                            style: TextStyle(
+                              color: Colors.red,
+                            ),
+                          ),
+                          leading: Icon(
+                            Icons.exit_to_app_rounded,
+                            color: Colors.red,
+                          ),
                         ),
                       ),
                     ),
