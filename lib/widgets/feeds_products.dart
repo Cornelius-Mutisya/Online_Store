@@ -23,12 +23,12 @@ class _FeedsProductsState extends State<FeedsProducts> {
             arguments: productsAttributes.id),
         child: Container(
           width: 250,
-          height: 290,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             color: Theme.of(context).backgroundColor,
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Stack(
                 children: [

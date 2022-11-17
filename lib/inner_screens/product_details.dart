@@ -234,7 +234,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Container(
                   margin: EdgeInsets.only(bottom: 30),
                   width: double.infinity,
-                  height: 340,
+                  height: 360,
                   child: ListView.builder(
                       itemCount: 7,
                       scrollDirection: Axis.horizontal,
@@ -262,38 +262,36 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               actions: [
                 Consumer<FavsProvider>(
-                    builder: (_, favs, ch) => 
-                    Badge(
-                      badgeColor: ColorsConsts.favBadgeColor,
-                      animationType: BadgeAnimationType.slide,
-                      toAnimate: true,
-                      position: BadgePosition.topEnd(top: 5, end: 7),
-                      badgeContent: Text(
-                        favs.getFavsItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
+                  builder: (_, favs, ch) => Badge(
+                    badgeColor: ColorsConsts.favBadgeColor,
+                    animationType: BadgeAnimationType.slide,
+                    toAnimate: true,
+                    position: BadgePosition.topEnd(top: 5, end: 7),
+                    badgeContent: Text(
+                      favs.getFavsItems.length.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    child: IconButton(
+                      icon: Icon(
+                        MyAppIcons.wishlist,
+                        color: ColorsConsts.favColor,
                       ),
-                      child: IconButton(
-                        icon: Icon(
-                          MyAppIcons.wishlist,
-                          color: ColorsConsts.favColor,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(Wishlist.routeName);
-                        },
-                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(Wishlist.routeName);
+                      },
+                    ),
                   ),
                 ),
                 Consumer<CartProvider>(
-                    builder: (_, cart, ch) => 
-                    Badge(
-                      badgeColor: ColorsConsts.cartBadgeColor,
-                      animationType: BadgeAnimationType.slide,
-                      toAnimate: true,
-                      position: BadgePosition.topEnd(top: 5, end: 7),
-                      badgeContent: Text(
-                        cart.getCartItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
-                      ),
+                  builder: (_, cart, ch) => Badge(
+                    badgeColor: ColorsConsts.cartBadgeColor,
+                    animationType: BadgeAnimationType.slide,
+                    toAnimate: true,
+                    position: BadgePosition.topEnd(top: 5, end: 7),
+                    badgeContent: Text(
+                      cart.getCartItems.length.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
                     child: IconButton(
                       icon: Icon(
                         MyAppIcons.cart,
@@ -329,7 +327,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(side: BorderSide.none),
-                        primary: Colors.redAccent.shade400,
+                        backgroundColor: Colors.redAccent.shade400,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       child: Text(
@@ -349,7 +347,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(side: BorderSide.none),
-                        primary: Theme.of(context).backgroundColor,
+                        backgroundColor: Theme.of(context).backgroundColor,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       child: Row(
@@ -390,8 +388,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                       },
                       child: Center(
                         child: Icon(
-                          favsProvider.getFavsItems.containsKey(productId) ? Icons.favorite : MyAppIcons.wishlist,
-                          color: favsProvider.getFavsItems.containsKey(productId) ? Colors.red : ColorsConsts.white,
+                          favsProvider.getFavsItems.containsKey(productId)
+                              ? Icons.favorite
+                              : MyAppIcons.wishlist,
+                          color:
+                              favsProvider.getFavsItems.containsKey(productId)
+                                  ? Colors.red
+                                  : ColorsConsts.white,
                         ),
                       ),
                     ),

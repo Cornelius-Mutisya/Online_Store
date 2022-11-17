@@ -11,7 +11,7 @@ class BrandsNavigationRail extends StatelessWidget {
       onTap: () => Navigator.pushNamed(context, ProductDetails.routeName,
           arguments: productsAttributes.id),
       child: Container(
-      //  color: Colors.red,
+        //  color: Colors.red,
         padding: EdgeInsets.only(left: 5.0, right: 5.0),
         margin: EdgeInsets.only(right: 20.0, bottom: 5, top: 18),
         constraints: BoxConstraints(
@@ -23,10 +23,10 @@ class BrandsNavigationRail extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Theme.of(context).backgroundColor,
                   image: DecorationImage(
-                      image: NetworkImage(
-                        productsAttributes.imageUrl,
-                      ),
-                      ),
+                    image: NetworkImage(
+                      productsAttributes.imageUrl,
+                    ),
+                  ),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   boxShadow: [
                     BoxShadow(
@@ -61,7 +61,9 @@ class BrandsNavigationRail extends StatelessWidget {
                       maxLines: 4,
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          color: Theme.of(context).textSelectionTheme.selectionColor),
+                          color: Theme.of(context)
+                              .textSelectionTheme
+                              .selectionColor),
                     ),
                     SizedBox(
                       height: 20.0,
@@ -77,8 +79,7 @@ class BrandsNavigationRail extends StatelessWidget {
                     SizedBox(
                       height: 20.0,
                     ),
-                    Text(
-                      productsAttributes.productCategoryName,
+                    Text(productsAttributes.productCategoryName,
                         style: TextStyle(color: Colors.grey, fontSize: 18.0)),
                     SizedBox(
                       height: 20.0,

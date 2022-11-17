@@ -143,7 +143,7 @@ class _BrandNavigationRailScreenState extends State<BrandNavigationRailScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: 80,
+                            height: 40,
                           ),
                         ],
                       ),
@@ -157,6 +157,7 @@ class _BrandNavigationRailScreenState extends State<BrandNavigationRailScreen> {
                       unselectedLabelTextStyle: TextStyle(
                         fontSize: 15,
                         letterSpacing: 0.8,
+                        color: Colors.black,
                       ),
                       destinations: [
                         buildRotatedTextRailDestination('Adidas', padding),
@@ -208,8 +209,8 @@ class ContentSpace extends StatelessWidget {
     final productsData = Provider.of<Products>(context, listen: false);
     final productsBrand = productsData.findByBrand(brand);
 
-    if(brand=='All'){
-      for(int i=0; i<productsData.products.length;i++){
+    if (brand == 'All') {
+      for (int i = 0; i < productsData.products.length; i++) {
         productsBrand.add(productsData.products[i]);
       }
     }
@@ -226,8 +227,9 @@ class ContentSpace extends StatelessWidget {
             itemCount: productsBrand.length,
             itemBuilder: (BuildContext context, int index) =>
                 ChangeNotifierProvider.value(
-                    value: productsBrand[index], 
-                    child: BrandsNavigationRail()),
+              value: productsBrand[index],
+              child: BrandsNavigationRail(),
+            ),
           ),
         ),
       ),
